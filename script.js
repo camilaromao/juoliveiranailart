@@ -1,9 +1,9 @@
-// ===== BOTÃO PDF ===== //
+// =========================================
+// ELEMENTOS DO MODAL
+// =========================================
 
 const abrirTabela = document.getElementById("abrirTabela");
-
 const fecharTabela = document.getElementById("fecharTabela");
-
 const modalTabela = document.getElementById("modalTabela");
 
 
@@ -11,7 +11,7 @@ const modalTabela = document.getElementById("modalTabela");
 // ABRIR MODAL
 // =========================================
 
-abrirTabela.addEventListener("click", () => {
+abrirTabela.addEventListener("click", function () {
 
     modalTabela.classList.add("ativo");
 
@@ -21,29 +21,40 @@ abrirTabela.addEventListener("click", () => {
 
 
 // =========================================
-// FECHAR MODAL
+// FUNÇÃO PARA FECHAR
 // =========================================
 
-fecharTabela.addEventListener("click", () => {
+function fecharModal() {
 
     modalTabela.classList.remove("ativo");
 
     document.body.style.overflow = "";
 
+}
+
+
+// =========================================
+// BOTÃO X
+// =========================================
+
+fecharTabela.addEventListener("click", function () {
+
+    fecharModal();
+
 });
 
 
 // =========================================
-// FECHAR CLICANDO FORA
+// CLICAR FORA DO PDF
 // =========================================
 
-modalTabela.addEventListener("click", (evento) => {
+modalTabela.addEventListener("click", function (evento) {
 
-    if (evento.target === modalTabela) {
+    const conteudo = document.querySelector(".modal-conteudo");
 
-        modalTabela.classList.remove("ativo");
+    if (!conteudo.contains(evento.target)) {
 
-        document.body.style.overflow = "";
+        fecharModal();
 
     }
 
@@ -51,29 +62,29 @@ modalTabela.addEventListener("click", (evento) => {
 
 
 // =========================================
-// FECHAR COM ESC
+// TECLA ESC
 // =========================================
 
-document.addEventListener("keydown", (evento) => {
+document.addEventListener("keydown", function (evento) {
 
     if (evento.key === "Escape") {
 
-        modalTabela.classList.remove("ativo");
-
-        document.body.style.overflow = "";
+        fecharModal();
 
     }
 
 });
 
 
-// ===== Fotos aparecendo quando você rola a página ==== //
+// =========================================
+// ANIMAÇÃO DOS CARDS
+// =========================================
 
 const itens = document.querySelectorAll(".item");
 
-const observador = new IntersectionObserver((entradas) => {
+const observador = new IntersectionObserver(function (entradas) {
 
-    entradas.forEach((entrada) => {
+    entradas.forEach(function (entrada) {
 
         if (entrada.isIntersecting) {
 
@@ -86,7 +97,7 @@ const observador = new IntersectionObserver((entradas) => {
 });
 
 
-itens.forEach((item) => {
+itens.forEach(function (item) {
 
     observador.observe(item);
 
