@@ -154,7 +154,6 @@
             </div>
 
         </section>
-       
 
         <!-- CATALOGO -->
 
@@ -162,46 +161,11 @@
 
     <h2>✨ Meu Catálogo ✨</h2>
 
-    <!-- BOTÃO TABELA DE PREÇOS -->
+    <!-- BOTÃO Catalogo PDF -->
 
 <button id="abrirTabela" class="botao-precos">
-    ✨ Tabela de Preços
+    ✨ Meu Catálogo
 </button>
-
-
-<!-- MODAL -->
-
-<div id="modalTabela" class="modal">
-
-    <div class="modal-conteudo">
-
-        <!-- CABEÇALHO -->
-
-        <div class="modal-header item">
-
-            <h2>💅 CATALOGO</h2>
-
-            <button id="fecharTabela" class="botao-fechar">
-                &times;
-            </button>
-
-        </div>
-
-
-        <!-- PDF -->
-
-        <div class="pdf-container item">
-
-            <iframe
-                src="assets/catalogo.pdf"
-                title="Tabela de Preços">
-            </iframe>
-
-        </div>
-
-    </div>
-
-</div>
 
 </section>
 
@@ -220,38 +184,63 @@
                     referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
 
+        <div class="texto-local">
 
-                <!-- Texto sobre o mapa -->
+            <h2 class="titulo-script">
+                Estamos localizados na
+            </h2>
 
-                <div class="texto-local item">
+            <p>
+                R. Professora Hermínia Maria Sofia Intrieri Lâqua,
+                1378 altos – Bairro do Humaitá em São Vicente–SP
+            </p>
 
-                    <h2 class="titulo-script item">
-                        Estamos localizados na
-                    </h2>
+            <p class="horario">
+                Horário das 10:00 às 20:00 de Quarta a Sábado!
+            </p>
 
-                    <p>
-                        R. Professora Hermínia Maria Sofia Intrieri Lâqua,
-                        1378 altos – Bairro do Humaitá em São Vicente–SP
-                    </p>
+            <a
+                href="https://www.instagram.com/juoliveira.nailart/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-agendar">
+                Agendar horário
+            </a>
 
-                    <p class="horario item">
-                        Horário das 10:00 às 20:00 de Quarta a Sábado!
-                    </p>
+        </div>
 
-                    <a href="https://www.instagram.com/juoliveira.nailart/" target="_blank"
-                   rel="noopener noreferrer"  class="link-agendar">
-                        Agendar horário
-                    </a>
+    </div>
+</section>
+</main>   
 
-                </div>
+<!-- MODAL DO PDF -->
 
-            </div>
+<div id="modalTabela" class="modal">
 
-        </section>
+    <div class="modal-conteudo">
 
-    </main>
+        <div class="modal-header">
 
+            <h2>💅 CATÁLOGO</h2>
 
+            <button id="fecharTabela" class="botao-fechar">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="pdf-container">
+
+            <iframe
+                src="assets/catalogo.pdf"
+                title="Catalogo">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
     <!-- ===== RODAPÉ ===== -->
 
     <footer>
