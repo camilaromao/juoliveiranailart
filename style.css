@@ -1,0 +1,890 @@
+/* ================================================= */
+/* GOOGLE FONTS                                      */
+/* ================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+/* ================================================= */
+/* RESET                                             */
+/* ================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================================= */
+/* BODY                                              */
+/* ================================================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    background: url('assets/walpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    min-height: 100vh;
+
+    padding: 20px;
+
+    color: #1a1a1a;
+}
+
+
+/* ================================================= */
+/* ANIMAÇÃO AO ROLAR A PÁGINA                        */
+/* ================================================= */
+
+.item {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.item.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================= */
+/* CABEÇALHO / NAVBAR                                */
+/* ================================================= */
+
+.navbar {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 900px;
+
+    margin: 0 auto 30px auto;
+
+    padding: 10px 0;
+}
+
+.logo-topo {
+    margin: 0;
+
+    font-family: 'Kaushan Script', cursive;
+
+    font-size: 2rem;
+
+    color: #1a1a1a;
+
+    text-align: center;
+}
+
+
+.menu-direita {
+    position: absolute;
+
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.redes-sociais {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.icone-rede {
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+
+    transition: transform 0.2s ease;
+}
+
+
+.icone-rede:hover {
+    transform: scale(1.12);
+}
+
+/* ================================================= */
+/* CONTAINER PRINCIPAL                               */
+/* ================================================= */
+
+.container-principal {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* ================================================= */
+/* CARDS                                              */
+/* ================================================= */
+
+.card-vidro {
+    background: rgba(255, 255, 255, 0.4);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    padding: 30px;
+
+    box-shadow: 0 10px 30px rgba(53, 53, 47, 0.15);
+}
+
+
+.card-duplo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.card-localizacao {
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+/* ================================================= */
+/* FOTO DO CARD 2                                    */
+/* ================================================= */
+
+.foto-card {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 20px;
+
+    object-fit: cover;
+
+    border: 0;
+}
+
+
+.conteudo-texto {
+    flex: 1;
+}
+
+
+/* CATALOGO */
+/* ========================================= */
+/* BOTÃO TABELA DE PREÇOS                    */
+/* ========================================= */
+
+.catalogo {
+    text-align: center;
+}
+
+.botao-precos {
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #d889a3;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+}
+
+
+.botao-precos:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* ========================================= */
+/* MODAL                                     */
+/* ========================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+
+    z-index: 9999;
+
+}
+
+
+/* MODAL ABERTO */
+
+.modal.ativo {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* ========================================= */
+/* CONTEÚDO DO MODAL                         */
+/* ========================================= */
+
+.modal-conteudo {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    height: 90vh;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transform: scale(0.85);
+
+    transition: transform 0.3s ease;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* ANIMAÇÃO AO ABRIR */
+
+.modal.ativo .modal-conteudo {
+
+    transform: scale(1);
+
+}
+
+
+/* ========================================= */
+/* CABEÇALHO                                  */
+/* ========================================= */
+
+.modal-header {
+    height: 65px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background: #fff0f5;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #9b526d;
+    font-size: 20px;
+    text-align: center;
+}
+
+.botao-fechar {
+    position: absolute;
+    right: 20px;
+}
+
+
+/* ========================================= */
+/* BOTÃO FECHAR                              */
+/* ========================================= */
+
+.botao-fechar {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #9b526d;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.botao-fechar:hover {
+
+    background: #d889a3;
+
+    color: white;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* ========================================= */
+/* PDF                                       */
+/* ========================================= */
+
+.catalogo {
+    text-align: center;
+}
+
+.pdf-container {
+
+    width: 100%;
+
+    height: calc(100% - 65px);
+
+}
+
+
+.pdf-container iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+    .modal {
+
+        padding: 10px;
+
+    }
+
+
+    .modal-conteudo {
+
+        width: 100%;
+
+        height: 90vh;
+
+        border-radius: 15px;
+
+    }
+
+
+    .modal-header h2 {
+
+        font-size: 16px;
+
+    }
+
+
+    .botao-fechar {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 26px;
+
+    }
+
+}
+
+/* ================================================= */
+/* GOOGLE MAPS                                       */
+/* ================================================= */
+
+.local-end {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.local-end iframe {
+    display: block;
+
+    width: 100%;
+    height: 450px;
+
+    border: 0;
+}
+
+
+/* ================================================= */
+/* TEXTO SOBRE O MAPA                                */
+/* ================================================= */
+
+.texto-local {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.card-localizacao {
+    padding: 0;
+
+    overflow: hidden;
+
+    margin-top: 50px;
+}
+
+
+/* ================================================= */
+/* TIPOGRAFIA                                        */
+/* ================================================= */
+
+.titulo-script {
+    font-family: 'Kaushan Script', cursive;
+
+    font-size: 2rem;
+
+    color: #1a1a1a;
+
+    margin-bottom: 15px;
+}
+
+
+.subtitulo {
+    font-size: 1rem;
+
+    line-height: 1.5;
+
+    color: #333333;
+}
+
+
+.lista-motivos p {
+    font-size: 0.9rem;
+
+    margin-bottom: 12px;
+
+    line-height: 1.4;
+}
+
+
+.texto-destaque {
+    font-size: 1.1rem;
+
+    font-weight: 500;
+
+    margin-bottom: 8px;
+}
+
+
+.horario {
+    font-size: 0.95rem;
+
+    color: #444444;
+
+    margin: 10px 0;
+}
+
+
+.texto-centro {
+    text-align: center;
+}
+
+
+/* ================================================= */
+/* LINK AGENDAR                                      */
+/* ================================================= */
+
+.link-agendar {
+    display: inline-block;
+
+    font-family: 'Kaushan Script', cursive;
+
+    font-size: 1.4rem;
+
+    color: #1a1a1a;
+
+    text-decoration: none;
+
+    transition: opacity 0.2s;
+
+    padding: 5px;
+}
+
+
+.link-agendar:hover {
+    opacity: 0.7;
+}
+
+/* ================================================= */
+/* RODAPÉ                                             */
+/* ================================================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 40px;
+
+    font-size: 0.85rem;
+
+    color: #333333;
+}
+
+
+/* ================================================= */
+/* RESPONSIVIDADE                                    */
+/* ================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+
+    /* Cabeçalho */
+
+    .navbar {
+    position: relative;
+
+    min-height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+    .logo-topo {
+        font-size: 1.7rem;
+    }
+
+    .logo-topo {
+    font-size: 1.7rem;
+
+    text-align: center;
+}
+
+
+.menu-direita {
+    position: absolute;
+
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.icone-rede {
+    width: 24px;
+    height: 24px;
+}
+
+
+    /* Cards */
+
+    .card-duplo {
+        flex-direction: column;
+    }
+
+
+    .foto-card {
+        width: 100%;
+
+        height: 220px;
+    }
+
+
+    /* Google Maps */
+
+    .local-end iframe {
+        height: 500px;
+    }
+
+
+    /* Texto sobre o mapa */
+
+    .texto-local {
+        padding: 18px 15px;
+    }
+
+
+    .texto-local .titulo-script {
+        font-size: 1.5rem;
+
+        margin-bottom: 8px;
+    }
+
+
+    .texto-local p {
+        font-size: 0.85rem;
+
+        line-height: 1.4;
+    }
+
+
+    .texto-local .horario {
+        font-size: 0.8rem;
+
+        margin: 8px 0;
+    }
+
+
+    .link-agendar {
+        font-size: 1.25rem;
+    }
+
+
+    /* Rodapé */
+
+    footer {
+        font-size: 0.75rem;
+    }
+}
+
+/* ================================================= */
+/* RESPONSIVIDADE - CELULAR                          */
+/* ================================================= */
+
+@media (max-width: 600px) {
+
+    /* ============================= */
+    /* BODY                          */
+    /* ============================= */
+
+    body {
+        padding: 15px;
+    }
+
+
+    /* ============================= */
+    /* CABEÇALHO                     */
+    /* ============================= */
+
+    .navbar {
+        position: relative;
+
+        min-height: 55px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .logo-topo {
+        font-size: 1.7rem;
+
+        text-align: center;
+    }
+
+
+    .menu-direita {
+        position: absolute;
+
+        right: 0;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+    }
+
+
+    .icone-rede {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    /* ============================= */
+    /* CARDS                         */
+    /* ============================= */
+
+    .card-duplo {
+        flex-direction: column;
+    }
+
+
+    .foto-card {
+        width: 100%;
+
+        height: 220px;
+    }
+
+
+    /* ============================= */
+    /* MODAL DO PDF                  */
+    /* ============================= */
+
+    .modal {
+        padding: 10px;
+    }
+
+
+    .modal-conteudo {
+        width: 100%;
+
+        height: 90vh;
+
+        border-radius: 15px;
+    }
+
+
+    .modal-header h2 {
+        font-size: 16px;
+    }
+
+
+    .botao-fechar {
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 26px;
+    }
+
+
+    /* ============================= */
+    /* GOOGLE MAPS                   */
+    /* ============================= */
+
+    .local-end iframe {
+        height: 500px;
+    }
+
+
+    /* ============================= */
+    /* TEXTO SOBRE O MAPA            */
+    /* ============================= */
+
+    .texto-local {
+        padding: 18px 15px;
+    }
+
+
+    .texto-local .titulo-script {
+        font-size: 1.5rem;
+
+        margin-bottom: 8px;
+    }
+
+
+    .texto-local p {
+        font-size: 0.85rem;
+
+        line-height: 1.4;
+    }
+
+
+    .texto-local .horario {
+        font-size: 0.8rem;
+
+        margin: 8px 0;
+    }
+
+
+    .link-agendar {
+        font-size: 1.25rem;
+    }
+
+
+    /* ============================= */
+    /* RODAPÉ                       */
+    /* ============================= */
+
+    footer {
+        font-size: 0.75rem;
+    }
+
+}
