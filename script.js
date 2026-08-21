@@ -102,3 +102,34 @@ itens.forEach(function (item) {
     observador.observe(item);
 
 });
+
+
+// BOTÃO DE AGENDAR // 
+
+const botao = document.getElementById("agendar");
+
+
+botao.addEventListener("mouseenter", () => {
+
+    for (let i = 0; i < 8; i++) {
+
+        const brilho = document.createElement("span");
+
+        brilho.classList.add("brilho");
+
+        brilho.style.left = Math.random() * 100 + "%";
+
+        brilho.style.top = Math.random() * 100 + "%";
+
+        botao.appendChild(brilho);
+
+
+        setTimeout(() => {
+
+            brilho.remove();
+
+        }, 1000);
+
+    }
+
+});
