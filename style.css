@@ -31,6 +31,8 @@ body {
     padding: 20px;
 
     color: #1a1a1a;
+
+    overflow-x: hidden;
 }
 
 
@@ -40,6 +42,7 @@ body {
 
 .item {
     opacity: 0;
+
     transform: translateY(30px);
 
     transition:
@@ -49,8 +52,10 @@ body {
 
 .item.aparecer {
     opacity: 1;
+
     transform: translateY(0);
 }
+
 
 /* ================================================= */
 /* CABEÇALHO / NAVBAR                                */
@@ -60,14 +65,18 @@ body {
     position: relative;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
+    width: 100%;
     max-width: 900px;
 
-    margin: 0 auto 30px auto;
+    min-height: 55px;
 
-    padding: 10px 0;
+    margin: 0 auto 30px;
+
+    padding: 10px 60px 10px 10px;
 }
 
 .logo-topo {
@@ -75,13 +84,17 @@ body {
 
     font-family: 'Kaushan Script', cursive;
 
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
 
     color: #1a1a1a;
 
     text-align: center;
 }
 
+
+/* ================================================= */
+/* MENU / REDES SOCIAIS                              */
+/* ================================================= */
 
 .menu-direita {
     position: absolute;
@@ -99,13 +112,13 @@ body {
     gap: 20px;
 }
 
-
 .redes-sociais {
     display: flex;
 
+    align-items: center;
+
     gap: 12px;
 }
-
 
 .icone-rede {
     width: 28px;
@@ -116,10 +129,10 @@ body {
     transition: transform 0.2s ease;
 }
 
-
 .icone-rede:hover {
     transform: scale(1.12);
 }
+
 
 /* ================================================= */
 /* CONTAINER PRINCIPAL                               */
@@ -127,11 +140,13 @@ body {
 
 .container-principal {
     width: 100%;
+
     max-width: 800px;
 
     margin: 0 auto;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 25px;
@@ -139,10 +154,12 @@ body {
 
 
 /* ================================================= */
-/* CARDS                                              */
+/* CARDS                                             */
 /* ================================================= */
 
 .card-vidro {
+    width: 100%;
+
     background: rgba(255, 255, 255, 0.4);
 
     backdrop-filter: blur(12px);
@@ -154,9 +171,14 @@ body {
 
     padding: 30px;
 
-    box-shadow: 0 10px 30px rgba(53, 53, 47, 0.15);
+    box-shadow:
+        0 10px 30px rgba(53, 53, 47, 0.15);
 }
 
+
+/* ================================================= */
+/* CARD DUPLO                                       */
+/* ================================================= */
 
 .card-duplo {
     display: flex;
@@ -167,45 +189,77 @@ body {
 }
 
 
+/* ================================================= */
+/* CARD LOCALIZAÇÃO                                 */
+/* ================================================= */
+
 .card-localizacao {
+    position: relative;
+
     padding: 0;
 
     overflow: hidden;
+
+    margin-top: 35px;
+
+    z-index: 1;
 }
 
 
 /* ================================================= */
-/* FOTO DO CARD 2                                    */
+/* FOTO DO CARD                                      */
 /* ================================================= */
 
 .foto-card {
     width: 200px;
+
     height: 200px;
+
+    flex-shrink: 0;
 
     border-radius: 20px;
 
-    object-fit: cover;
+    /*
+       A imagem inteira será exibida.
+       Não haverá corte.
+    */
+    object-fit: contain;
+
+    object-position: center;
+
+    /*
+       Fundo para imagens que não ocupam
+       todo o espaço.
+    */
+    background: rgba(255, 255, 255, 0.35);
 
     border: 0;
+
+    display: block;
 }
 
 
 .conteudo-texto {
     flex: 1;
+
+    min-width: 0;
 }
 
 
-/* CATALOGO */
-/* ========================================= */
-/* BOTÃO TABELA DE PREÇOS                    */
-/* ========================================= */
+/* ================================================= */
+/* CATÁLOGO                                          */
+/* ================================================= */
 
 .catalogo {
     text-align: center;
 }
 
-.botao-precos {
 
+/* ================================================= */
+/* BOTÃO TABELA DE PREÇOS                            */
+/* ================================================= */
+
+.botao-precos {
     padding: 14px 28px;
 
     border: none;
@@ -224,25 +278,25 @@ body {
 
     cursor: pointer;
 
-    transition: all 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.12);
 }
-
 
 .botao-precos:hover {
-
     transform: translateY(-3px);
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 
-/* ========================================= */
-/* MODAL                                     */
-/* ========================================= */
+/* ================================================= */
+/* MODAL                                             */
+/* ================================================= */
 
 .modal {
     position: fixed;
@@ -255,12 +309,14 @@ body {
     background: rgba(0, 0, 0, 0.65);
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
     padding: 20px;
 
     opacity: 0;
+
     visibility: hidden;
 
     transition:
@@ -271,23 +327,24 @@ body {
 }
 
 
-
-/* MODAL ABERTO */
+/* ================================================= */
+/* MODAL ABERTO                                      */
+/* ================================================= */
 
 .modal.ativo {
-   opacity: 1;
-   visibility: visible;
+    opacity: 1;
 
+    visibility: visible;
 }
 
 
-/* ========================================= */
-/* CONTEÚDO DO MODAL                         */
-/* ========================================= */
+/* ================================================= */
+/* CONTEÚDO DO MODAL                                 */
+/* ================================================= */
 
 .modal-conteudo {
-
     width: 90%;
+
     max-width: 900px;
 
     height: 90vh;
@@ -302,31 +359,28 @@ body {
 
     transition: transform 0.3s ease;
 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3);
 
     cursor: default;
-
 }
-
-
-/* ANIMAÇÃO AO ABRIR */
 
 .modal.ativo .modal-conteudo {
-
     transform: scale(1);
-
 }
 
 
-/* ========================================= */
-/* CABEÇALHO                                  */
-/* ========================================= */
+/* ================================================= */
+/* CABEÇALHO DO MODAL                                */
+/* ================================================= */
 
 .modal-header {
     height: 65px;
+
     padding: 0 20px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -337,25 +391,27 @@ body {
 
 .modal-header h2 {
     margin: 0;
+
     color: #9b526d;
+
     font-size: 20px;
+
     text-align: center;
+
+    padding: 0 45px;
 }
+
+
+/* ================================================= */
+/* BOTÃO FECHAR                                      */
+/* ================================================= */
 
 .botao-fechar {
     position: absolute;
+
     right: 20px;
-}
-
-
-/* ========================================= */
-/* BOTÃO FECHAR                              */
-/* ========================================= */
-
-.botao-fechar {
 
     width: 40px;
-
     height: 40px;
 
     border: none;
@@ -370,92 +426,39 @@ body {
 
     cursor: pointer;
 
-    transition: all 0.3s ease;
-
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-
 .botao-fechar:hover {
-
     background: #d889a3;
 
     color: white;
 
     transform: rotate(90deg);
-
 }
 
 
-/* ========================================= */
-/* PDF                                       */
-/* ========================================= */
-
-.catalogo {
-    text-align: center;
-}
+/* ================================================= */
+/* PDF                                               */
+/* ================================================= */
 
 .pdf-container {
-
     width: 100%;
 
     height: calc(100% - 65px);
-
 }
 
-
 .pdf-container iframe {
-
     width: 100%;
 
     height: 100%;
 
     border: none;
-
 }
 
-
-/* ========================================= */
-/* RESPONSIVIDADE                            */
-/* ========================================= */
-
-@media (max-width: 600px) {
-
-    .modal {
-
-        padding: 10px;
-
-    }
-
-
-    .modal-conteudo {
-
-        width: 100%;
-
-        height: 90vh;
-
-        border-radius: 15px;
-
-    }
-
-
-    .modal-header h2 {
-
-        font-size: 16px;
-
-    }
-
-
-    .botao-fechar {
-
-        width: 35px;
-
-        height: 35px;
-
-        font-size: 26px;
-
-    }
-
-}
 
 /* ================================================= */
 /* GOOGLE MAPS                                       */
@@ -467,11 +470,11 @@ body {
     width: 100%;
 }
 
-
 .local-end iframe {
     display: block;
 
     width: 100%;
+
     height: 450px;
 
     border: 0;
@@ -500,21 +503,6 @@ body {
     -webkit-backdrop-filter: blur(8px);
 }
 
-.card-localizacao {
-
-    position: relative;
-
-    z-index: 1;
-
-    padding: 0;
-
-    overflow: hidden;
-
-    margin-top: 35px;
-}
-
-
-
 
 /* ================================================= */
 /* TIPOGRAFIA                                        */
@@ -523,13 +511,12 @@ body {
 .titulo-script {
     font-family: 'Kaushan Script', cursive;
 
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
 
     color: #1a1a1a;
 
     margin-bottom: 15px;
 }
-
 
 .subtitulo {
     font-size: 1rem;
@@ -539,7 +526,6 @@ body {
     color: #333333;
 }
 
-
 .lista-motivos p {
     font-size: 0.9rem;
 
@@ -547,7 +533,6 @@ body {
 
     line-height: 1.4;
 }
-
 
 .texto-destaque {
     font-size: 1.1rem;
@@ -557,7 +542,6 @@ body {
     margin-bottom: 8px;
 }
 
-
 .horario {
     font-size: 0.95rem;
 
@@ -565,7 +549,6 @@ body {
 
     margin: 10px 0;
 }
-
 
 .texto-centro {
     text-align: center;
@@ -592,13 +575,13 @@ body {
     padding: 5px;
 }
 
-
 .link-agendar:hover {
     opacity: 0.7;
 }
 
+
 /* ================================================= */
-/* RODAPÉ                                             */
+/* RODAPÉ                                            */
 /* ================================================= */
 
 footer {
@@ -613,121 +596,40 @@ footer {
 
 
 /* ================================================= */
-/* RESPONSIVIDADE                                    */
+/* RESPONSIVIDADE - TABLET                           */
 /* ================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     body {
         padding: 15px;
     }
 
-
-    /* Cabeçalho */
-
     .navbar {
-    position: relative;
-
-    min-height: 55px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-}
-
-
-    .logo-topo {
-        font-size: 1.7rem;
+        margin-bottom: 25px;
     }
 
-    .logo-topo {
-    font-size: 1.7rem;
+    .card-vidro {
+        padding: 25px;
 
-    text-align: center;
-}
-
-
-.menu-direita {
-    position: absolute;
-
-    right: 0;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-}
-
-
-.icone-rede {
-    width: 24px;
-    height: 24px;
-}
-
-
-    /* Cards */
+        border-radius: 30px;
+    }
 
     .card-duplo {
-        flex-direction: column;
+        gap: 20px;
     }
-
 
     .foto-card {
-        width: 100%;
+        width: 180px;
 
-        height: 220px;
+        height: 180px;
     }
-
-
-    /* Google Maps */
 
     .local-end iframe {
-        height: 500px;
-    }
-
-
-    /* Texto sobre o mapa */
-
-    .texto-local {
-        padding: 18px 15px;
-    }
-
-
-    .texto-local .titulo-script {
-        font-size: 1.5rem;
-
-        margin-bottom: 8px;
-    }
-
-
-    .texto-local p {
-        font-size: 0.85rem;
-
-        line-height: 1.4;
-    }
-
-
-    .texto-local .horario {
-        font-size: 0.8rem;
-
-        margin: 8px 0;
-    }
-
-
-    .link-agendar {
-        font-size: 1.25rem;
-    }
-
-
-    /* Rodapé */
-
-    footer {
-        font-size: 0.75rem;
+        height: 420px;
     }
 }
+
 
 /* ================================================= */
 /* RESPONSIVIDADE - CELULAR                          */
@@ -740,7 +642,7 @@ footer {
     /* ============================= */
 
     body {
-        padding: 15px;
+        padding: 10px;
     }
 
 
@@ -749,41 +651,44 @@ footer {
     /* ============================= */
 
     .navbar {
-        position: relative;
+        width: 100%;
 
-        min-height: 55px;
+        min-height: 50px;
 
-        display: flex;
+        margin-bottom: 20px;
 
-        justify-content: center;
-
-        align-items: center;
-
-        text-align: center;
+        padding: 8px 50px 8px 5px;
     }
-
 
     .logo-topo {
-        font-size: 1.7rem;
+        font-size: 1.55rem;
 
-        text-align: center;
+        line-height: 1.2;
     }
-
 
     .menu-direita {
-        position: absolute;
-
         right: 0;
 
-        top: 50%;
+        gap: 8px;
+    }
 
-        transform: translateY(-50%);
+    .redes-sociais {
+        gap: 7px;
+    }
+
+    .icone-rede {
+        width: 22px;
+
+        height: 22px;
     }
 
 
-    .icone-rede {
-        width: 24px;
-        height: 24px;
+    /* ============================= */
+    /* CONTAINER                     */
+    /* ============================= */
+
+    .container-principal {
+        gap: 18px;
     }
 
 
@@ -791,47 +696,145 @@ footer {
     /* CARDS                         */
     /* ============================= */
 
-    .card-duplo {
-        flex-direction: column;
-    }
+    .card-vidro {
+        padding: 20px;
 
-
-    .foto-card {
-        width: 100%;
-
-        height: 220px;
+        border-radius: 25px;
     }
 
 
     /* ============================= */
-    /* MODAL DO PDF                  */
+    /* CARD DUPLO                    */
+    /* ============================= */
+
+    .card-duplo {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 18px;
+
+        text-align: center;
+    }
+
+
+    /* ============================= */
+    /* IMAGEM                        */
+    /* ============================= */
+
+    .foto-card {
+        /*
+           A imagem ocupa a largura disponível,
+           mas não será cortada.
+        */
+        width: 100%;
+
+        max-width: 320px;
+
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        object-fit: contain;
+
+        object-position: center;
+
+        border-radius: 18px;
+    }
+
+
+    /* ============================= */
+    /* TEXTO                         */
+    /* ============================= */
+
+    .conteudo-texto {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .titulo-script {
+        font-size: 1.6rem;
+
+        margin-bottom: 10px;
+    }
+
+    .subtitulo {
+        font-size: 0.9rem;
+
+        line-height: 1.5;
+    }
+
+    .texto-destaque {
+        font-size: 1rem;
+    }
+
+    .horario {
+        font-size: 0.85rem;
+    }
+
+    .lista-motivos p {
+        font-size: 0.85rem;
+    }
+
+
+    /* ============================= */
+    /* BOTÃO                         */
+    /* ============================= */
+
+    .botao-precos {
+        width: 100%;
+
+        max-width: 320px;
+
+        padding: 12px 20px;
+
+        font-size: 15px;
+    }
+
+
+    /* ============================= */
+    /* MODAL                         */
     /* ============================= */
 
     .modal {
-        padding: 10px;
+        padding: 8px;
     }
-
 
     .modal-conteudo {
         width: 100%;
 
-        height: 90vh;
+        height: 92vh;
 
         border-radius: 15px;
     }
 
+    .modal-header {
+        height: 58px;
 
-    .modal-header h2 {
-        font-size: 16px;
+        padding: 0 45px 0 10px;
     }
 
+    .modal-header h2 {
+        font-size: 15px;
+
+        line-height: 1.2;
+
+        padding: 0;
+    }
 
     .botao-fechar {
+        right: 8px;
+
         width: 35px;
 
         height: 35px;
 
-        font-size: 26px;
+        font-size: 25px;
+    }
+
+    .pdf-container {
+        height: calc(100% - 58px);
     }
 
 
@@ -840,7 +843,7 @@ footer {
     /* ============================= */
 
     .local-end iframe {
-        height: 500px;
+        height: 430px;
     }
 
 
@@ -849,33 +852,29 @@ footer {
     /* ============================= */
 
     .texto-local {
-        padding: 18px 15px;
+        padding: 15px 12px;
     }
-
 
     .texto-local .titulo-script {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
 
-        margin-bottom: 8px;
+        margin-bottom: 6px;
     }
 
-
     .texto-local p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
 
         line-height: 1.4;
     }
 
-
     .texto-local .horario {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
 
-        margin: 8px 0;
+        margin: 6px 0;
     }
 
-
     .link-agendar {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
 
 
@@ -884,7 +883,54 @@ footer {
     /* ============================= */
 
     footer {
-        font-size: 0.75rem;
+        margin-top: 25px;
+
+        font-size: 0.72rem;
+
+        padding: 0 10px;
+    }
+}
+
+
+/* ================================================= */
+/* CELULARES MUITO PEQUENOS                          */
+/* ================================================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 8px;
     }
 
+    .navbar {
+        padding-right: 45px;
+    }
+
+    .logo-topo {
+        font-size: 1.4rem;
+    }
+
+    .icone-rede {
+        width: 20px;
+
+        height: 20px;
+    }
+
+    .card-vidro {
+        padding: 16px;
+
+        border-radius: 22px;
+    }
+
+    .foto-card {
+        max-width: 280px;
+    }
+
+    .titulo-script {
+        font-size: 1.45rem;
+    }
+
+    .modal-conteudo {
+        height: 94vh;
+    }
 }
