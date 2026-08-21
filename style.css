@@ -556,28 +556,93 @@ body {
 
 
 /* ================================================= */
-/* LINK AGENDAR                                      */
+/* BOTÃO DE AGENDAR                                      */
 /* ================================================= */
 
-.link-agendar {
-    display: inline-block;
+.botao {
 
-    font-family: 'Kaushan Script', cursive;
+    position: relative;
 
-    font-size: 1.4rem;
+    padding: 16px 35px;
 
-    color: #1a1a1a;
+    border: none;
 
+    border-radius: 30px;
+
+    background: #d889a3;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: transform 0.3s;
+
+    margin-top: 3px;
+}
+
+
+.botao:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+.brilho {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: subir 1s forwards;
+
+}
+
+
+@keyframes subir {
+
+    0% {
+
+        transform: translateY(0) scale(1);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: translateY(-50px) scale(0);
+
+        opacity: 0;
+
+    }
+
+}
+
+a {
     text-decoration: none;
-
-    transition: opacity 0.2s;
-
-    padding: 5px;
 }
 
-.link-agendar:hover {
-    opacity: 0.7;
+.botao-horario {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
 }
+
 
 
 /* ================================================= */
